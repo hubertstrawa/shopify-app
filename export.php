@@ -19,6 +19,12 @@
         $collectionList = json_decode($collectionList['response'], JSON_PRETTY_PRINT);
         $collection_id = $collectionList['custom_collections'][0]['id'];
 
+
+        echo '<h2>Export file</h2>';
+        echo '<p>Password:</p>';
+        echo $_GET['password'];
+
+
         echo '<p>Collection ID: ' . $collection_id . 
 
         $collects = shopify_call($token, $shop, "/admin/api/2020-04/collects.json", array("collection_id"=>$collection_id), 'GET');
@@ -32,11 +38,11 @@
                 echo $products['product']['title'] . '<br />';
             }
         }
+    } else {
+        echo '<strong>Sorry it doesnt have a password</strong>';
     }
 
+    echo 'Current URL: <br />';
     echo $thisUrl;
 
-    echo '<h2>Export file</h2>';
-    echo '<p>Password:</p>';
-    echo $_GET['password'];
 ?>

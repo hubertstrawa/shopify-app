@@ -39,7 +39,7 @@
         echo '<strong>Sorry it doesnt have a password</strong><br/>';
     }
 
-    echo 'Saved pass in SESSION: <br/>';
+    echo '<br/><br/>Saved pass in SESSION: <br/>';
     echo $_SESSION['pass'];
     echo '<br/><strong>Current URL: </strong><br />';
     echo $thisUrl;

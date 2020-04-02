@@ -27,7 +27,16 @@
         }
     }
 
-    echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
+    $thisUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $pass = $_GET['password'];
+
+    echo $passIndex;
+
+    if (strpos($thisUrl, $pass) !== false) {
+        echo '<br/>It has password<br/>';
+    }
+
+    echo $thisUrl;
 
     echo '<h2>Export file</h2>';
     echo '<p>Password:</p>';

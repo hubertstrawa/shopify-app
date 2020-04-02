@@ -13,11 +13,15 @@
 ?>
 
     <form action="index.php" method="get">
-        Password: <input type="text" name="password">
+        Password: <input type="text" name="password" value="">
         <input type="submit" value="Submit">
     </form><br>
+
+    <?php $passIndex = $_GET['password']; ?>
+
     <a href="/export.php?password=<?php echo $_GET['password']; ?>">/export.php?password=<?php echo $_GET['password']; ?></a>
     <br>
+
 
 </body>
 </html>

@@ -1,12 +1,11 @@
 <?php
+    session_start();
     require("inc/functions.php");
 
-    $thisUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    $pass = $_GET['password'];
+    $thisUrl = $_SERVER['REQUEST_URI'];
+    $pass = $_SESSION['pass'];
 
-    echo $passIndex;
-
-    if (strpos($thisUrl, $pass) !== false) {
+    if ($thisUrl == '/export.php?password='.$pass) {
         $requests = $_GET;
         $hmac = $_GET['hmac'];
         $serializeArray = serialize($requests);
@@ -38,11 +37,14 @@
                 echo $products['product']['title'] . '<br />';
             }
         }
+
     } else {
-        echo '<strong>Sorry it doesnt have a password</strong>';
+        echo '<strong>Sorry it doesnt have a password</strong><br/>';
     }
 
-    echo 'Current URL: <br />';
+    echo 'Saved pass in SESSION: <br/>';
+    echo $_SESSION['pass'];
+    echo '<br/><strong>Current URL: </strong><br />';
     echo $thisUrl;
 
 ?>

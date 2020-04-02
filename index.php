@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $_SESSION['pass']= $_GET['password'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +21,6 @@
         Password: <input type="text" name="password" value="">
         <input type="submit" value="Submit">
     </form><br>
-
-    <?php $passIndex = $_GET['password']; ?>
 
     <a href="/export.php?password=<?php echo $_GET['password']; ?>">/export.php?password=<?php echo $_GET['password']; ?></a>
     <br>

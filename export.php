@@ -13,7 +13,7 @@
     $collectionList = json_decode($collectionList['response'], JSON_PRETTY_PRINT);
     $collection_id = $collectionList['custom_collections'][0]['id'];
 
-    echo 'Collection ID: ' + $collection_id;
+    echo '<p>Collection ID: ' . $collection_id . 
 
     $collects = shopify_call($token, $shop, "/admin/api/2020-04/collects.json", array("collection_id"=>$collection_id), 'GET');
     $collects = json_decode($collects['response'], JSON_PRETTY_PRINT);
@@ -26,6 +26,8 @@
             echo $products['product']['title'] . '<br />';
         }
     }
+
+    echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
 
     echo '<h2>Export file</h2>';
     echo '<p>Password:</p>';
